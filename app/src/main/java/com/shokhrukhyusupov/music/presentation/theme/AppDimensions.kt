@@ -1,50 +1,38 @@
 package com.shokhrukhyusupov.music.presentation.theme
 
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
+@Immutable
 data class AppDimensions(
-    val screenPadding: Dp,
+    val paddingExtraSmall: Dp = 4.dp,
+    val paddingSmall: Dp = 8.dp,
+    val paddingMedium: Dp = 16.dp,
+    val paddingLarge: Dp = 24.dp,
+    val paddingExtraLarge: Dp = 32.dp,
 
-    val spacingExtraSmall: Dp,
-    val spacingSmall: Dp,
-    val spacingMedium: Dp,
-    val spacingLarge: Dp,
-    val spacingExtraLarge: Dp,
+    val spacingExtraSmall: Dp = 4.dp,
+    val spacingSmall: Dp = 8.dp,
+    val spacingMedium: Dp = 16.dp,
+    val spacingLarge: Dp = 24.dp,
+    val spacingExtraLarge: Dp = 32.dp,
 
-    val fieldHeight: Dp,
-    val buttonHeight: Dp,
+    val screenPadding: Dp = 16.dp,
 
-    val iconSmall: Dp,
-    val iconMedium: Dp,
-    val iconLarge: Dp,
+    val buttonHeight: Dp = 48.dp,
+    val textFieldHeight: Dp = 56.dp,
 
-    val avatarSmall: Dp,
-    val avatarMedium: Dp,
-    val avatarLarge: Dp
-) {
+    val iconSmall: Dp = 16.dp,
+    val iconMedium: Dp = 24.dp,
+    val iconLarge: Dp = 32.dp,
 
-    companion object {
+    val cornerSmall: Dp = 8.dp,
+    val cornerMedium: Dp = 12.dp,
+    val cornerLarge: Dp = 16.dp
+)
 
-        val Default = AppDimensions(
-            screenPadding = 24.dp,
-
-            spacingExtraSmall = 4.dp,
-            spacingSmall = 8.dp,
-            spacingMedium = 12.dp,
-            spacingLarge = 24.dp,
-            spacingExtraLarge = 32.dp,
-
-            fieldHeight = 52.dp,
-            buttonHeight = 52.dp,
-
-            iconSmall = 16.dp,
-            iconMedium = 24.dp,
-            iconLarge = 32.dp,
-
-            avatarSmall = 32.dp,
-            avatarMedium = 48.dp,
-            avatarLarge = 64.dp
-        )
-    }
+val LocalDimensions = staticCompositionLocalOf {
+    AppDimensions()
 }
