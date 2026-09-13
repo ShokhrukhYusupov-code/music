@@ -1,32 +1,44 @@
 package com.shokhrukhyusupov.music.presentation.home
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.shokhrukhyusupov.music.core.navigation.AppRoute
+import com.shokhrukhyusupov.music.presentation.library.LibraryScreen
+import com.shokhrukhyusupov.music.presentation.premium.PremiumScreen
+import com.shokhrukhyusupov.music.presentation.search.SearchScreen
+import com.shokhrukhyusupov.music.core.ui.components.AppBottomBar
 
 @Composable
 fun HomeScreen() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(24.dp),
-        verticalArrangement = Arrangement.Center
-    ) {
-        Text(
-            text = "Главная",
-            style = MaterialTheme.typography.headlineLarge
-        )
+    val bottomNavController = rememberNavController()
 
-        Text(
-            text = "Добро пожаловать в Music",
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+    Scaffold(
+        bottomBar = {
+            AppBottomBar(navController = bottomNavController)
+        }
+    ) { innerPadding ->
+        NavHost(
+            navController = bottomNavController,
+            startDestination = AppRoute.Main.Home,
+            modifier = Modifier.padding(innerPadding)
+        ) {
+            composable<AppRoute.Main.Home> {
+                HomeContent()
+            }
+            composable<AppRoute.Main.Search> {
+                SearchScreen()
+            }
+            composable<AppRoute.Main.Library> {
+                LibraryScreen()
+            }
+            composable<AppRoute.Main.Premium> {
+                PremiumScreen()
+            }
+        }
     }
 }

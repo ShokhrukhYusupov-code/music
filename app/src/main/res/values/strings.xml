@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">music</string>
+    <string name="login">Login</string>
+    <string name="phone_number">Phone number</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="show_password">Show password</string>
+    <string name="hide_password">Hide password</string>
+    <string name="enter_password">Enter password</string>
+    <string name="error_phone_required">Enter phone number</string>
+    <string name="error_password_required">Enter password</string>
+    <string name="error_password_short">The password must contain fewer than 6 characters.</string>
+    <string name="auth_error">Authorization error</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="library">Library</string>
+    <string name="premium">Premium</string>
 </resources>

@@ -1,45 +1,29 @@
 package com.shokhrukhyusupov.music.core.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 
 import com.shokhrukhyusupov.music.presentation.home.HomeScreen
-import com.shokhrukhyusupov.music.presentation.login.LoginScreen
-import com.shokhrukhyusupov.music.presentation.login.LoginViewModel
-import com.shokhrukhyusupov.music.presentation.login.LoginViewModelFactory
+import com.shokhrukhyusupov.music.presentation.auth.login.LoginRoute
 
 @Composable
 fun AppNavHost(
-    navController: NavHostController,
-    loginViewModelFactory: LoginViewModelFactory
+    startDestination: AppRoute
 ) {
+    val navController = rememberNavController()
+
     NavHost(
         navController = navController,
-        startDestination = AppRoute.Login
+        startDestination = startDestination
     ) {
 
         composable<AppRoute.Login> {
-
-            val viewModel: LoginViewModel = viewModel(
-                factory = loginViewModelFactory
-            )
-
-            LoginScreen(
-                viewModel = viewModel,
-                onLoginSuccess = {
-                    navController.navigate(AppRoute.Home) {
-                        popUpTo(AppRoute.Login) {
-                            inclusive = true
-                        }
-                    }
-                }
-            )
+            LoginRoute()
         }
 
-        composable<AppRoute.Home> {
+        composable<AppRoute.Main.Home> {
             HomeScreen()
         }
     }
