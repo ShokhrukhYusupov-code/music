@@ -27,6 +27,9 @@ data class AppDimensions(
     val buttonHeight: Dp = 48.dp,
     val textFieldHeight: Dp = 56.dp,
 
+    val dividerStartInset: Dp = 56.dp,
+    val dividerEndInset: Dp = 16.dp,
+
     val iconSmall: Dp = 16.dp,
     val iconMedium: Dp = 24.dp,
     val iconLarge: Dp = 32.dp,

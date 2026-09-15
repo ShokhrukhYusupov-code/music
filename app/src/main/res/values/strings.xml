@@ -15,4 +15,9 @@
     <string name="search">Search</string>
     <string name="library">Library</string>
     <string name="premium">Premium</string>
+    <string name="settings_logout_title">Log Out</string>
+    <string name="settings_logout_subtitle">End the session on this device</string>
+    <string name="settings_title">Settings</string>
+    <string name="settings_version_support_title">About and support</string>
+    <string name="settings_version_privacy_subtitle">%1$s • Privacy Policy</string>
 </resources>

@@ -12,5 +12,6 @@ sealed interface AppRoute {
         @Serializable data object Search : Main
         @Serializable data object Library : Main
         @Serializable data object Premium : Main
+        @Serializable data object Settings : Main
     }
 }
