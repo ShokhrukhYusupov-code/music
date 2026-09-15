@@ -23,7 +23,7 @@ class SessionManager @Inject constructor(
 ) {
     private val externalScope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
 
-    val authState: StateFlow<SessionState> = secureStorage.accessTokenFlow
+    val sessionState: StateFlow<SessionState> = secureStorage.accessTokenFlow
         .map { token ->
             if (token.isNullOrBlank()) {
                 SessionState.Unauthenticated

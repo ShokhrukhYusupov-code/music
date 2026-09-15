@@ -30,14 +30,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         splashScreen.setKeepOnScreenCondition {
-            viewModel.authState.value is SessionState.Loading
+            viewModel.sessionState.value is SessionState.Loading
         }
 
         setContent {
             AppTheme {
-                val authState by viewModel.authState.collectAsState()
+                val sessionState by viewModel.sessionState.collectAsState()
 
-                when (authState) {
+                when (sessionState) {
                     is SessionState.Loading -> {
                         Box(
                             modifier = Modifier.fillMaxSize(),

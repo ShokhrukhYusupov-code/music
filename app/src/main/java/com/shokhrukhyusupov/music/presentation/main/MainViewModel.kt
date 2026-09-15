@@ -15,7 +15,7 @@ class MainViewModel @Inject constructor(
     sessionManager: SessionManager
 ) : ViewModel() {
 
-    val authState: StateFlow<SessionState> = sessionManager.authState
+    val sessionState: StateFlow<SessionState> = sessionManager.sessionState
         .stateIn(
             scope = viewModelScope,
             started = SharingStarted.Eagerly,
